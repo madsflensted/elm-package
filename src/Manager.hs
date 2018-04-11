@@ -26,7 +26,7 @@ run :: Manager a -> IO (Either Error.Error a)
 run manager =
   Network.withSocketsDo $
     do  cacheDirectory <- getCacheDirectory
-        httpManager <- Http.newManager Http.tlsManagerSettings
+        httpManager <- Http.newManager $ Http.tlsManagerSettings { Http.managerResponseTimeout = Http.responseTimeoutNone }
         let env = Environment "http://package.elm-lang.org" cacheDirectory httpManager
         runReaderT (runExceptT manager) env
 

@@ -27,7 +27,7 @@ parser =
   B.info flagParser $ mconcat $
     [ B.fullDesc
     , B.progDesc "install and publish elm packages"
-    , B.header ("elm-package " ++ Package.versionToString Compiler.version)
+    , B.header ("elm-package " ++ "0.18.0 - with proxy fixes")
     , B.footerDoc $ Just $ P.nest 2 $ P.vcat $ map P.text $
         [ "To learn more about a particular command run:"
         , "elm-package COMMAND --help"
